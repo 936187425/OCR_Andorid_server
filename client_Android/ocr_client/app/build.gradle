@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.example.objectdetection"
+        minSdkVersion 14
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation files('libs\\aip-java-sdk-4.15.1.jar')
+    implementation files('libs\\json-20160810.jar')
+    implementation files('libs\\slf4j-api-1.7.25.jar')
+    implementation files('libs\\slf4j-simple-1.7.25.jar')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'org.jsoup:jsoup:1.13.1'
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+    implementation project(":opencv")
+    implementation 'com.rmtheis:tess-two:9.0.0'
+}
